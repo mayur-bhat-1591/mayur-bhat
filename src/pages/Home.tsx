@@ -19,7 +19,7 @@ const Home = () => {
           </p>
           <div className="flex justify-center gap-4 mb-12 animate-fadeIn [animation-delay:400ms]">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/mayur-bhat-1591"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-muted transition-colors hover:scale-110 transform duration-200"
@@ -27,7 +27,7 @@ const Home = () => {
               <Github className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/bhatm"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-muted transition-colors hover:scale-110 transform duration-200"
@@ -35,7 +35,7 @@ const Home = () => {
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:iammayurbhat@gmail.com"
               className="p-2 rounded-full hover:bg-muted transition-colors hover:scale-110 transform duration-200"
             >
               <Mail className="w-6 h-6" />
