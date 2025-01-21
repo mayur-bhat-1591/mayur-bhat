@@ -16,6 +16,13 @@ const Projects = () => {
       github: "https://github.com/yourusername/project2",
       demo: "https://demo-link-2.com",
     },
+    {
+      title: "AI Agent 3",
+      description: "Description of your third AI agent and its capabilities.",
+      tags: ["Python", "Computer Vision", "Deep Learning"],
+      github: "https://github.com/yourusername/project2",
+      demo: "https://demo-link-2.com",
+    },
     // Add more projects as needed
   ];
 
