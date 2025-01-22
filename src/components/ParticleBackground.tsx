@@ -2,11 +2,7 @@ import React from 'react';
 // @ts-ignore
 import MouseParticles from 'react-mouse-particles';
 
-interface ParticleBackgroundProps {
-  colors?: string[];
-}
-
-const ParticleBackground = ({ colors = ["#7B68EE", "#9370DB", "#8A2BE2"] }: ParticleBackgroundProps) => {
+const ParticleBackground = () => {
   return (
     <MouseParticles
       g={1}
@@ -14,7 +10,7 @@ const ParticleBackground = ({ colors = ["#7B68EE", "#9370DB", "#8A2BE2"] }: Part
       radius={6}
       life={1.5}
       v={2}
-      color={colors}
+      color={["#7B68EE", "#9370DB", "#8A2BE2"]} // Purple shades
       alpha={0.4}
       className="fixed inset-0 -z-10 pointer-events-none"
     />
