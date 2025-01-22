@@ -7,8 +7,8 @@ const ParticleBackground: React.FC = () => {
     <MouseParticles
       g={1}
       num={6}
-      radius={6}
-      life={1.5}
+      radius={4}
+      life={0.2}
       v={2}
       color={["#7B68EE", "#9370DB", "#8A2BE2"]} // Purple shades
       alpha={0.4}
