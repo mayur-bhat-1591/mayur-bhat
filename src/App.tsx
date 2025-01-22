@@ -5,13 +5,11 @@ import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
-import ParticleBackground from "./components/ParticleBackground";
 import CustomCursor from "./components/CustomCursor";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <ParticleBackground />
       <CustomCursor />
       <Layout>
         <Routes>
