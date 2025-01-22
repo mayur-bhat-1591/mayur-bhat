@@ -1,23 +1,25 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import ParticleBackground from "../components/ParticleBackground";
+import CustomCursor from "../components/CustomCursor";
 
 const Home = () => {
   return (
     <div className="animate-fadeIn">
+      <ParticleBackground />
+      <CustomCursor />
+      
       {/* Hero Section */}
       <section className="min-h-[calc(100vh-4rem)] flex items-center justify-center relative overflow-hidden">
-        {/* Background image and overlay */}
         <div 
-          className="absolute inset-0 bg-[url('/background.jpg')] bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-            backgroundImage: `linear-gradient(225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)`,
+            backgroundImage: `url('/background.jpg')`,
           }}
-        >
-          <div className="absolute inset-0 bg-black/30"></div>
-        </div>
+        />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center relative">
-          <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto animate-fadeIn [animation-delay:200ms] hover:text-primary transition-colors duration-300 font-medium">
+          <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto animate-fadeIn [animation-delay:200ms] hover:text-primary transition-colors duration-300 font-medium backdrop-blur-sm bg-black/30 p-6 rounded-lg">
             I build AI agents that solve real-world problems and help businesses
             grow.
           </p>
