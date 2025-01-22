@@ -10,9 +10,6 @@ const Home = () => {
         <div className="absolute inset-0 bg-grid-slate-200 [mask-image:linear-gradient(0deg,white,transparent)] dark:bg-grid-slate-800/50"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center relative">
-          <h1 className="text-4xl md:text-6xl font-bold text-accent mb-6 animate-fadeIn hover:scale-105 transition-transform duration-300">
-            Hi, I'm Mayur Bhat
-          </h1>
           <p className="text-xl md:text-2xl text-secondary mb-8 max-w-2xl mx-auto animate-fadeIn [animation-delay:200ms] hover:text-primary transition-colors duration-300">
             I build AI agents that solve real-world problems and help businesses
             grow.
