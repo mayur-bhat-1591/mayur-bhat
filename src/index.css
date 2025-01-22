@@ -90,7 +90,7 @@
   }
 
   * {
-    @apply border-border cursor-none;
+    @apply border-border;
   }
 
   body {
