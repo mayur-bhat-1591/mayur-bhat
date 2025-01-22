@@ -14,11 +14,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-xl font-bold text-accent">
+            <Link to="/" className="text-xl font-bold text-foreground">
               Mayur Bhat
             </Link>
           </div>
@@ -51,7 +51,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background">
             {navItems.map((item) => (
               <Link
                 key={item.name}
