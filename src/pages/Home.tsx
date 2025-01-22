@@ -1,14 +1,9 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import ParticleBackground from "../components/ParticleBackground";
-import CustomCursor from "../components/CustomCursor";
 
 const Home = () => {
   return (
     <div className="animate-fadeIn">
-      <ParticleBackground />
-      <CustomCursor />
-      
       {/* Hero Section */}
       <section className="min-h-[calc(100vh-4rem)] flex items-center justify-center relative overflow-hidden">
         <div 
