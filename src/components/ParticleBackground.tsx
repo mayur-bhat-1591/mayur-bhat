@@ -12,7 +12,8 @@ const ParticleBackground = () => {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ 
       alpha: true,
-      antialias: true 
+      antialias: true,
+      powerPreference: "high-performance"
     });
     
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -21,14 +22,19 @@ const ParticleBackground = () => {
 
     // Particles
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 5000;
+    const particlesCount = 7500; // Increased particle count
     const posArray = new Float32Array(particlesCount * 3);
 
-    // Create a more spread out distribution of particles
+    // Create a more uniform distribution of particles
     for (let i = 0; i < particlesCount * 3; i += 3) {
-      posArray[i] = (Math.random() - 0.5) * 10;      // X coordinate
-      posArray[i + 1] = (Math.random() - 0.5) * 10;  // Y coordinate
-      posArray[i + 2] = (Math.random() - 0.5) * 10;  // Z coordinate
+      // Using spherical distribution for better coverage
+      const radius = 15;
+      const theta = THREE.MathUtils.randFloatSpread(360);
+      const phi = THREE.MathUtils.randFloatSpread(360);
+
+      posArray[i] = radius * Math.sin(theta) * Math.cos(phi);
+      posArray[i + 1] = radius * Math.sin(theta) * Math.sin(phi);
+      posArray[i + 2] = radius * Math.cos(theta);
     }
 
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
@@ -39,11 +45,12 @@ const ParticleBackground = () => {
       transparent: true,
       opacity: 0.8,
       blending: THREE.AdditiveBlending,
+      sizeAttenuation: true,
     });
 
     const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particlesMesh);
-    camera.position.z = 3;
+    camera.position.z = 5;
 
     // Mouse movement
     let mouseX = 0;
@@ -64,14 +71,20 @@ const ParticleBackground = () => {
     const animate = () => {
       const elapsedTime = clock.getElapsedTime();
 
-      // Smooth mouse movement
-      targetX = mouseX * 0.2;
-      targetY = mouseY * 0.2;
+      // Smooth mouse movement with reduced sensitivity
+      targetX = mouseX * 0.1;
+      targetY = mouseY * 0.1;
       
-      particlesMesh.rotation.y = elapsedTime * 0.05;
-      particlesMesh.rotation.x += (targetY - particlesMesh.rotation.x) * 0.05;
-      particlesMesh.rotation.y += (targetX - particlesMesh.rotation.y) * 0.05;
+      // Continuous rotation regardless of mouse movement
+      particlesMesh.rotation.y = elapsedTime * 0.1;
+      
+      // Add mouse-based rotation
+      particlesMesh.rotation.x += (targetY - particlesMesh.rotation.x) * 0.02;
+      particlesMesh.rotation.y += (targetX - particlesMesh.rotation.y) * 0.02;
 
+      // Add slight oscillation to particles
+      particlesMesh.position.y = Math.sin(elapsedTime * 0.5) * 0.1;
+      
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
@@ -95,9 +108,12 @@ const ParticleBackground = () => {
       }
       document.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
+      
+      // Proper cleanup of Three.js resources
       particlesGeometry.dispose();
       particlesMaterial.dispose();
       renderer.dispose();
+      scene.clear();
     };
   }, []);
 
