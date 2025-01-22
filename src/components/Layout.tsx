@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
+import ParallaxBackground from "./ParallaxBackground";
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,7 +12,8 @@ const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-transparent text-foreground relative">
+      <ParallaxBackground />
       <Navbar />
       <AnimatePresence mode="wait">
         <motion.main
