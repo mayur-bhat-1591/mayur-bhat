@@ -1,8 +1,8 @@
 import React from 'react';
-// @ts-ignore
+// @ts-ignore: MouseParticles has no type definitions
 import MouseParticles from 'react-mouse-particles';
 
-const ParticleBackground = () => {
+const ParticleBackground: React.FC = () => {
   return (
     <MouseParticles
       g={1}
