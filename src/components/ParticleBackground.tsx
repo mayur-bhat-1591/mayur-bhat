@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import MouseParticles from 'react-mouse-particles';
 
 const ParticleBackground = () => {
