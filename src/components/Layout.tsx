@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <AnimatePresence initial={false}>
+      <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
           initial={{ opacity: 0, y: 20 }}
