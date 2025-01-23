@@ -61,8 +61,29 @@ const About = () => {
     { fact: "API Consumption (REST and SOAP), SDLC", icon: <Sparkles className="w-6 h-6" /> },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen p-8 animate-fadeIn">
+    <div className="min-h-screen p-8 animate-fadeIn bg-gradient-to-br from-background via-background/95 to-background/90">
       {/* Introduction Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -70,7 +91,9 @@ const About = () => {
         transition={{ duration: 0.5 }}
         className="max-w-4xl mx-auto mb-12 text-center"
       >
-        <h1 className="text-4xl font-bold text-accent mb-4">About Me</h1>
+        <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary animate-pulse mb-4">
+          About Me
+        </h1>
         <p className="text-lg text-secondary">
           AI Developer passionate about creating intelligent solutions that make a difference.
         </p>
@@ -78,29 +101,33 @@ const About = () => {
 
       {/* Skills Section */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         className="max-w-4xl mx-auto mb-12"
       >
-        <h2 className="text-2xl font-semibold text-accent mb-6">Technical Skills</h2>
+        <h2 className="text-2xl font-semibold text-accent mb-6 relative">
+          Technical Skills
+          <span className="absolute bottom-0 left-0 w-20 h-1 bg-primary rounded-full"></span>
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              className="relative group"
             >
-              <Card className="hover:shadow-lg transition-all duration-300 bg-background/50 border-primary/20">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+              <Card className="relative bg-background/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="text-primary">{skill.icon}</div>
+                    <div className="text-primary group-hover:animate-pulse">{skill.icon}</div>
                     <div className="flex-1">
-                      <h3 className="text-accent mb-2">{skill.name}</h3>
-                      <div className="h-2 bg-muted rounded-full">
+                      <h3 className="text-accent mb-2 group-hover:text-primary transition-colors">{skill.name}</h3>
+                      <div className="h-2 bg-muted rounded-full overflow-hidden">
                         <motion.div
-                          className="h-full bg-primary rounded-full"
+                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
                           initial={{ width: 0 }}
                           animate={{ width: `${skill.level}%` }}
                           transition={{ duration: 1, delay: 0.5 }}
@@ -118,52 +145,72 @@ const About = () => {
 
       {/* Education Section */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         className="max-w-4xl mx-auto mb-12"
       >
-        <h2 className="text-2xl font-semibold text-accent mb-6">Education</h2>
-        <Accordion type="single" collapsible className="w-full">
+        <h2 className="text-2xl font-semibold text-accent mb-6 relative">
+          Education
+          <span className="absolute bottom-0 left-0 w-20 h-1 bg-primary rounded-full"></span>
+        </h2>
+        <Accordion type="single" collapsible className="w-full space-y-4">
           {education.map((edu, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-accent hover:text-primary">
-                <div className="flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5" />
-                  {edu.degree}
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-secondary">
-                <p className="mb-2 font-medium">{edu.school}</p>
-                <p className="text-sm">{edu.year}</p>
-                <p className="text-sm">{edu.location}</p>
-                <p className="mt-2 text-primary">{edu.description}</p>
-              </AccordionContent>
-            </AccordionItem>
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="relative group"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
+              <AccordionItem value={`item-${index}`} className="relative bg-background/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden">
+                <AccordionTrigger className="px-6 hover:no-underline group">
+                  <div className="flex items-center gap-2 group-hover:text-primary transition-colors">
+                    <GraduationCap className="w-5 h-5" />
+                    {edu.degree}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="mb-2 font-medium text-accent">{edu.school}</p>
+                    <p className="text-sm text-secondary">{edu.year}</p>
+                    <p className="text-sm text-secondary">{edu.location}</p>
+                    <p className="mt-2 text-primary font-medium">{edu.description}</p>
+                  </motion.div>
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
           ))}
         </Accordion>
       </motion.div>
 
       {/* Additional Technologies Section */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         className="max-w-4xl mx-auto"
       >
-        <h2 className="text-2xl font-semibold text-accent mb-6">Additional Technologies & Skills</h2>
+        <h2 className="text-2xl font-semibold text-accent mb-6 relative">
+          Additional Technologies & Skills
+          <span className="absolute bottom-0 left-0 w-20 h-1 bg-primary rounded-full"></span>
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {otherTechnologies.map((tech, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 + 0.6 }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              className="relative group"
             >
-              <Card className="hover:shadow-lg transition-all duration-300 bg-background/50 border-primary/20">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+              <Card className="relative bg-background/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300">
                 <CardContent className="p-6 flex items-center gap-3">
-                  <div className="text-primary">{tech.icon}</div>
-                  <p className="text-secondary">{tech.fact}</p>
+                  <div className="text-primary group-hover:animate-pulse">{tech.icon}</div>
+                  <p className="text-secondary group-hover:text-accent transition-colors">{tech.fact}</p>
                 </CardContent>
               </Card>
             </motion.div>
