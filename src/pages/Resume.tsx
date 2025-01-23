@@ -12,7 +12,7 @@ const Resume = () => {
         <h1 className="text-4xl font-bold text-foreground">Resume</h1>
         <Button
           variant="outline"
-          onClick={() => window.open("YOUR_OVERLEAF_READ_ONLY_LINK", "_blank")}
+          onClick={() => window.open("https://www.overleaf.com/read/ckmtsfwkbjyz#eceefa", "_blank")}
           className="flex items-center gap-2"
         >
           View on Overleaf <ExternalLink className="h-4 w-4" />
