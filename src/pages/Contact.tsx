@@ -57,12 +57,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl animate-fadeIn">
-      <h1 className="text-4xl font-bold mb-8 text-center">Get in Touch</h1>
+    <div className="container mx-auto px-4 py-8 max-w-6xl animate-fadeIn">
+      <h1 className="text-4xl font-bold mb-12 text-center">Get in Touch</h1>
       
-      <div className="grid md:grid-cols-2 gap-12">
+      <div className="grid md:grid-cols-2 gap-16">
         {/* Contact Form */}
-        <div className="space-y-8">
+        <div className="space-y-8 bg-background/50 p-8 rounded-lg backdrop-blur-sm border border-white/10">
           <p className="text-muted-foreground">
             I'd love to hear from you! Fill out the form below with some info about yourself and what you'd like to discuss.
           </p>
@@ -137,7 +137,7 @@ const Contact = () => {
         </div>
 
         {/* Calendar Section */}
-        <div className="space-y-8">
+        <div className="space-y-8 bg-background/50 p-8 rounded-lg backdrop-blur-sm border border-white/10">
           <div className="text-center space-y-4">
             <h2 className="text-2xl font-semibold">Schedule a Meeting</h2>
             <p className="text-muted-foreground">
@@ -147,7 +147,7 @@ const Contact = () => {
           
           <div 
             className="calendly-inline-widget" 
-            data-url="https://calendly.com/iammayurbhat/30min"
+            data-url="https://calendly.com/iammayurbhat/30min?hide_gdpr_banner=1&background_color=1a1f2c&text_color=ffffff&primary_color=3b82f6"
             style={{ minWidth: '320px', height: '600px' }}
           />
         </div>
