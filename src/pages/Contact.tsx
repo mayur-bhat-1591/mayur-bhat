@@ -131,7 +131,7 @@ const Contact = () => {
             </p>
           </div>
           
-          <div className="calendly-inline-widget min-h-[600px]" data-url="https://calendly.com/your-calendly-url"></div>
+          <div className="calendly-inline-widget min-h-[600px]" data-url="https://calendly.com/iammayurbhat/30min"></div>
           <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
       </div>
