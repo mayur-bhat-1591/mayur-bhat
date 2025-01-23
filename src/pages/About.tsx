@@ -118,16 +118,15 @@ const About = () => {
               whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               className="relative group"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
-              <Card className="relative bg-background/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300">
+              <Card className="bg-background/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="text-primary group-hover:animate-pulse">{skill.icon}</div>
+                    <div className="text-primary">{skill.icon}</div>
                     <div className="flex-1">
-                      <h3 className="text-accent mb-2 group-hover:text-primary transition-colors">{skill.name}</h3>
+                      <h3 className="text-accent mb-2">{skill.name}</h3>
                       <div className="h-2 bg-muted rounded-full overflow-hidden">
                         <motion.div
-                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
+                          className="h-full bg-primary rounded-full"
                           initial={{ width: 0 }}
                           animate={{ width: `${skill.level}%` }}
                           transition={{ duration: 1, delay: 0.5 }}
@@ -161,10 +160,9 @@ const About = () => {
               variants={itemVariants}
               className="relative group"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
               <AccordionItem value={`item-${index}`} className="relative bg-background/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden">
                 <AccordionTrigger className="px-6 hover:no-underline group">
-                  <div className="flex items-center gap-2 group-hover:text-primary transition-colors">
+                  <div className="flex items-center gap-2">
                     <GraduationCap className="w-5 h-5" />
                     {edu.degree}
                   </div>
@@ -206,11 +204,10 @@ const About = () => {
               whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               className="relative group"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
-              <Card className="relative bg-background/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300">
+              <Card className="bg-background/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300">
                 <CardContent className="p-6 flex items-center gap-3">
-                  <div className="text-primary group-hover:animate-pulse">{tech.icon}</div>
-                  <p className="text-secondary group-hover:text-accent transition-colors">{tech.fact}</p>
+                  <div className="text-primary">{tech.icon}</div>
+                  <p className="text-secondary">{tech.fact}</p>
                 </CardContent>
               </Card>
             </motion.div>
