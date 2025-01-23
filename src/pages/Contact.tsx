@@ -12,7 +12,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -32,6 +33,19 @@ const Contact = () => {
       message: "",
     },
   });
+
+  useEffect(() => {
+    // Initialize Calendly widget
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script when component unmounts
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values);
@@ -131,8 +145,11 @@ const Contact = () => {
             </p>
           </div>
           
-          <div className="calendly-inline-widget min-h-[600px]" data-url="https://calendly.com/iammayurbhat/30min"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <div 
+            className="calendly-inline-widget" 
+            data-url="https://calendly.com/iammayurbhat/30min"
+            style={{ minWidth: '320px', height: '600px' }}
+          />
         </div>
       </div>
     </div>
