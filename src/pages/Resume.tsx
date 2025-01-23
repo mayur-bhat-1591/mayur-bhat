@@ -22,7 +22,7 @@ const Resume = () => {
       <Card className="bg-background/50 backdrop-blur-sm border border-white/10">
         <div className="aspect-[8.5/11] w-full relative">
           <iframe
-            src="/resume.pdf#view=FitH"
+            src="/Mayur_s_Resume_ATS_2025 (1).pdf#view=FitH"
             className="w-full h-full absolute inset-0"
             onLoad={() => setIsLoading(false)}
             style={{ opacity: isLoading ? 0 : 1 }}
