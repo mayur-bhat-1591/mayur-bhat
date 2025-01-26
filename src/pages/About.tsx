@@ -14,19 +14,19 @@ const skills = [
   { 
     name: "AI/ML Technologies", 
     icon: <Brain className="w-6 h-6" />, 
-    level: 95,
+    level: 90,
     description: "LLM(Open source and SOTA), RAG Architecture, Embedding Models, Conversational AI"
   },
   { 
     name: "Programming", 
     icon: <Code2 className="w-6 h-6" />, 
-    level: 90,
+    level: 60,
     description: "Python, Advanced SQL, R"
   },
   { 
     name: "Data & ETL", 
     icon: <Database className="w-6 h-6" />, 
-    level: 85,
+    level: 90,
     description: "MS SQL Server, Oracle, Azure Synapse Analytics"
   },
   { 
