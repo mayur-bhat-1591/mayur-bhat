@@ -60,7 +60,7 @@ const Home = () => {
           >
             <Link
               to="/projects"
-              className="inline-flex items-center gap-3 bg-primary text-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-lg font-medium shadow-lg hover:shadow-primary/20"
+              className="inline-flex items-center gap-3 bg-[#8B5CF6] text-white px-8 py-4 rounded-lg hover:bg-[#7C3AED] transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20 text-lg font-medium"
             >
               View My Agents
               <ArrowRight className="w-5 h-5" />
