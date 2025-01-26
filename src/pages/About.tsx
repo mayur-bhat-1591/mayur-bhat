@@ -7,8 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import TimelineSection from "@/components/TimelineSection";
 
-const About = () => {
   const skills = [
     { 
       name: "AI/ML Technologies", 
@@ -61,6 +61,7 @@ const About = () => {
     { fact: "API Consumption (REST and SOAP), SDLC", icon: <Sparkles className="w-6 h-6" /> },
   ];
 
+const About = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -141,6 +142,9 @@ const About = () => {
           ))}
         </div>
       </motion.div>
+
+      {/* Timeline Section */}
+      <TimelineSection />
 
       {/* Education Section */}
       <motion.div
