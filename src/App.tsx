@@ -5,6 +5,7 @@ import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
+import Blogs from "./pages/Blogs";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </Layout>
     </BrowserRouter>

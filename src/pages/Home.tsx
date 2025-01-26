@@ -1,10 +1,10 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
     <div className="animate-fadeIn">      
-      {/* Hero Section */}
       <section className="min-h-[calc(100vh-4rem)] flex items-center justify-center relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
@@ -14,41 +14,59 @@ const Home = () => {
         />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center relative">
-          <p className="text-xl md:text-2xl text-foreground mb-8 max-w-2xl mx-auto animate-fadeIn [animation-delay:200ms] hover:text-primary transition-colors duration-300 font-medium backdrop-blur-sm bg-muted/30 p-6 rounded-lg">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-2xl md:text-3xl lg:text-4xl text-foreground mb-12 max-w-3xl mx-auto font-medium leading-relaxed tracking-wide"
+          >
             I build AI agents that solve real-world problems and help businesses
             grow.
-          </p>
-          <div className="flex justify-center gap-4 mb-12 animate-fadeIn [animation-delay:400ms]">
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex justify-center gap-6 mb-12"
+          >
             <a
               href="https://github.com/mayur-bhat-1591"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-muted/10 backdrop-blur-sm hover:bg-muted/20 transition-colors hover:scale-110 transform duration-200"
+              className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 transform hover:scale-110"
             >
-              <Github className="w-6 h-6 text-foreground" />
+              <Github className="w-6 h-6 text-primary" />
             </a>
             <a
               href="https://linkedin.com/in/bhatm"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-muted/10 backdrop-blur-sm hover:bg-muted/20 transition-colors hover:scale-110 transform duration-200"
+              className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 transform hover:scale-110"
             >
-              <Linkedin className="w-6 h-6 text-foreground" />
+              <Linkedin className="w-6 h-6 text-primary" />
             </a>
             <a
               href="mailto:iammayurbhat@gmail.com"
-              className="p-2 rounded-full bg-muted/10 backdrop-blur-sm hover:bg-muted/20 transition-colors hover:scale-110 transform duration-200"
+              className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 transform hover:scale-110"
             >
-              <Mail className="w-6 h-6 text-foreground" />
+              <Mail className="w-6 h-6 text-primary" />
             </a>
-          </div>
-          <Link
-            to="/projects"
-            className="inline-flex items-center gap-2 bg-primary text-foreground px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors hover:scale-105 transform duration-200 animate-fadeIn [animation-delay:600ms] shadow-lg hover:shadow-xl"
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
-            View My Agents
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-3 bg-primary text-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-lg font-medium shadow-lg hover:shadow-primary/20"
+            >
+              View My Agents
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </div>

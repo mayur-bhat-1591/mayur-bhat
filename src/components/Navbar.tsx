@@ -1,24 +1,31 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Projects", path: "/projects" },
     { name: "About", path: "/about" },
     { name: "Resume", path: "/resume" },
+    { name: "Blogs", path: "/blogs" },
     { name: "Contact", path: "/contact" },
   ];
+
+  const isActive = (path: string) => {
+    if (path === "/" && location.pathname !== "/") return false;
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-xl font-bold text-foreground">
+            <Link to="/" className="text-xl font-bold text-foreground hover:text-primary transition-colors">
               Mayur Bhat
             </Link>
           </div>
@@ -29,7 +36,11 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-secondary hover:text-primary transition-colors"
+                className={`text-base ${
+                  isActive(item.path)
+                    ? "text-primary font-medium"
+                    : "text-secondary hover:text-primary"
+                } transition-colors`}
               >
                 {item.name}
               </Link>
@@ -40,7 +51,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-secondary hover:text-primary"
+              className="text-secondary hover:text-primary transition-colors"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -56,7 +67,11 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="block px-3 py-2 text-secondary hover:text-primary transition-colors"
+                className={`block px-3 py-2 ${
+                  isActive(item.path)
+                    ? "text-primary font-medium"
+                    : "text-secondary hover:text-primary"
+                } transition-colors`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
