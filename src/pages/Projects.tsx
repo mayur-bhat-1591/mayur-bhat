@@ -1,57 +1,103 @@
 import { Github, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const Projects = () => {
   const projects = [
     {
       title: "AI Agent 1",
       description: "Description of your first AI agent and its capabilities.",
+      longDescription: "This AI agent leverages advanced machine learning algorithms to process natural language and provide intelligent responses. It's designed to handle complex queries and adapt to user needs.",
       tags: ["Python", "Machine Learning", "NLP"],
       github: "https://github.com/yourusername/project1",
       demo: "https://demo-link-1.com",
+      image: "/placeholder.svg"
     },
     {
       title: "AI Agent 2",
       description: "Description of your second AI agent and its capabilities.",
+      longDescription: "A computer vision-based AI agent that can analyze and process visual data in real-time. Perfect for applications requiring image recognition and processing.",
       tags: ["Python", "Computer Vision", "Deep Learning"],
       github: "https://github.com/yourusername/project2",
       demo: "https://demo-link-2.com",
+      image: "/placeholder.svg"
     },
     {
       title: "AI Agent 3",
       description: "Description of your third AI agent and its capabilities.",
-      tags: ["Python", "Computer Vision", "Deep Learning"],
-      github: "https://github.com/yourusername/project2",
-      demo: "https://demo-link-2.com",
+      longDescription: "An advanced AI system that combines natural language processing with predictive analytics to provide actionable business insights.",
+      tags: ["Python", "NLP", "Analytics"],
+      github: "https://github.com/yourusername/project3",
+      demo: "https://demo-link-3.com",
+      image: "/placeholder.svg"
     },
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
     <div className="animate-fadeIn max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-4xl font-bold text-accent mb-8">My Agents</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h1 className="text-4xl font-bold text-primary mb-8">My Agents</h1>
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
-            className="bg-background border border-muted rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] animate-fadeIn"
-            style={{
-              animationDelay: `${index * 150}ms`,
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
-            }}
+            variants={item}
+            className="h-full"
           >
-            <div className="p-6 bg-gradient-to-br from-background to-muted/30">
-              <h3 className="text-xl font-semibold mb-2 text-primary">{project.title}</h3>
-              <p className="text-foreground/80 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag, tagIndex) => (
-                  <span
-                    key={tagIndex}
-                    className="bg-muted/50 backdrop-blur-sm px-3 py-1 rounded-full text-sm text-primary/90 border border-primary/20 hover:border-primary/40 transition-colors"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="flex gap-4">
+            <Card className="h-full bg-background/50 backdrop-blur-sm border border-muted hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+              <CardHeader>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover rounded-t-lg mb-4"
+                />
+                <CardTitle className="text-xl text-primary">{project.title}</CardTitle>
+                <CardDescription className="text-foreground/80">
+                  {project.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-foreground/70 mb-4">
+                  {project.longDescription}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="bg-muted/50 backdrop-blur-sm px-3 py-1 rounded-full text-sm text-primary/90 border border-primary/20 hover:border-primary/40 transition-colors"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter className="flex gap-4">
                 <a
                   href={project.github}
                   target="_blank"
@@ -70,11 +116,11 @@ const Projects = () => {
                   <ExternalLink className="w-4 h-4 transition-transform group-hover:scale-110" />
                   Demo
                 </a>
-              </div>
-            </div>
-          </div>
+              </CardFooter>
+            </Card>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
