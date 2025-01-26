@@ -26,31 +26,31 @@ import {
 const skills = [
   {
     subject: "AI/ML",
-    level: 95,
+    level: 90,
     icon: Brain,
     description: "LLM, RAG Architecture, Embedding Models, Conversational AI",
   },
   {
     subject: "Programming",
-    level: 90,
+    level: 60,
     icon: Code2,
     description: "Python, Advanced SQL, R, TypeScript",
   },
   {
     subject: "Data & ETL",
-    level: 85,
+    level: 90,
     icon: Database,
     description: "MS SQL Server, Oracle, Azure Synapse Analytics",
   },
   {
     subject: "Cloud & DevOps",
-    level: 80,
+    level: 70,
     icon: Server,
     description: "Azure, AWS, Docker, CI/CD",
   },
   {
     subject: "System Design",
-    level: 88,
+    level: 60,
     icon: Network,
     description: "Distributed Systems, Microservices, API Design",
   },
