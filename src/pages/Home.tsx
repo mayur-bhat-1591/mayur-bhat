@@ -20,8 +20,7 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-2xl md:text-3xl lg:text-4xl text-foreground mb-12 max-w-3xl mx-auto font-medium leading-relaxed tracking-wide"
           >
-            I build AI agents that solve real-world problems and help businesses
-            grow.
+            I build AI agents that solve real-world business problems and drive growth.
           </motion.p>
           
           <motion.div 
