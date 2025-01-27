@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
+import Chatbot from "./pages/Chatbot";
 import { ThemeProvider } from "./components/ThemeProvider";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/resume" element={<Resume />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/chatbot" element={<Chatbot />} />
           </Routes>
         </Layout>
       </BrowserRouter>
