@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
+import { FloatingShape } from "../components/FloatingShapes";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -57,7 +58,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl animate-fadeIn">
+    <div className="container mx-auto px-4 py-8 max-w-6xl animate-fadeIn relative overflow-hidden">
+      {/* Floating shapes */}
+      <FloatingShape type="triangle" className="w-32 h-32 top-20 left-[5%] bg-primary/10 animate-float" />
+      <FloatingShape type="square" className="w-28 h-28 bottom-20 right-[10%] bg-secondary/10 animate-float delay-300" />
+      <FloatingShape type="hexagon" className="w-20 h-20 top-[40%] right-[20%] bg-accent/10 animate-float delay-600" />
+
       <h1 className="text-4xl font-bold mb-12 text-center">Get in Touch</h1>
       
       <div className="grid md:grid-cols-2 gap-16">

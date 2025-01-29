@@ -1,11 +1,17 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FloatingShape } from "../components/FloatingShapes";
 
 const Home = () => {
   return (
-    <div className="animate-fadeIn">      
-      <section className="min-h-[calc(100vh-4rem)] flex items-center justify-center relative overflow-hidden">
+    <div className="animate-fadeIn relative min-h-screen overflow-hidden">      
+      {/* Floating shapes */}
+      <FloatingShape type="hexagon" className="w-32 h-32 top-20 left-[10%] bg-primary/10 animate-float" />
+      <FloatingShape type="triangle" className="w-24 h-24 bottom-40 right-[15%] bg-secondary/10 animate-float delay-300" />
+      <FloatingShape type="pentagon" className="w-20 h-20 top-[40%] right-[25%] bg-accent/10 animate-float delay-700" />
+
+      <section className="min-h-[calc(100vh-4rem)] flex items-center justify-center relative">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
           style={{

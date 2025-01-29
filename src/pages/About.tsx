@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import TimelineSection from "@/components/TimelineSection";
 import SkillsChart from "@/components/SkillsChart";
+import { FloatingShape } from "../components/FloatingShapes";
 
 const skills = [
   { 
@@ -85,7 +86,12 @@ const About = () => {
   };
 
   return (
-    <div className="min-h-screen p-8 animate-fadeIn bg-gradient-to-br from-background via-background/95 to-background/90">
+    <div className="min-h-screen p-8 animate-fadeIn bg-gradient-to-br from-background via-background/95 to-background/90 relative overflow-hidden">
+      {/* Floating shapes */}
+      <FloatingShape type="square" className="w-28 h-28 top-40 left-[5%] bg-primary/10 animate-float" />
+      <FloatingShape type="pentagon" className="w-20 h-20 bottom-20 right-[8%] bg-secondary/10 animate-float delay-500" />
+      <FloatingShape type="triangle" className="w-16 h-16 top-[30%] right-[20%] bg-accent/10 animate-float delay-200" />
+
       {/* Introduction Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

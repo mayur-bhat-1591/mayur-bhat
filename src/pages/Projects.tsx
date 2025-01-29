@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { FloatingShape } from "../components/FloatingShapes";
 
 const Projects = () => {
   const projects = [
@@ -56,7 +57,12 @@ const Projects = () => {
   };
 
   return (
-    <div className="animate-fadeIn max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="animate-fadeIn max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative overflow-hidden">
+      {/* Floating shapes */}
+      <FloatingShape type="pentagon" className="w-36 h-36 top-20 left-[8%] bg-primary/10 animate-float" />
+      <FloatingShape type="hexagon" className="w-24 h-24 bottom-40 right-[12%] bg-secondary/10 animate-float delay-400" />
+      <FloatingShape type="square" className="w-20 h-20 top-[35%] right-[25%] bg-accent/10 animate-float delay-700" />
+
       <h1 className="text-4xl font-bold text-primary mb-8">My Agents</h1>
       <motion.div 
         variants={container}
