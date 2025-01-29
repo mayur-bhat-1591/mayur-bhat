@@ -12,15 +12,20 @@ import { FloatingShape } from "../components/FloatingShapes";
 
 const Projects = () => {
   const projects = [
-    {
-      title: "AI Agent 1",
-      description: "Description of your first AI agent and its capabilities.",
-      longDescription: "This AI agent leverages advanced machine learning algorithms to process natural language and provide intelligent responses. It's designed to handle complex queries and adapt to user needs.",
-      tags: ["Python", "Machine Learning", "NLP"],
-      github: "https://github.com/yourusername/project1",
-      demo: "https://demo-link-1.com",
-      image: "/placeholder.svg"
-    },
+ {
+    "title": "TechTrend Fusion",
+    "description": "Multi-agent system that combines web research, market analysis, and social media content generation for comprehensive tech trend analysis.",
+    "longDescription": """This sophisticated multi-agent system leverages the power of three specialized AI agents working in harmony:
+    1. Browser Agent: Performs real-time web research on emerging tech trends
+    2. Market Analysis Agent: Evaluates market impact and company performance metrics
+    3. Content Generation Agent: Creates professional LinkedIn posts and technical documentation
+    
+    The system excels at identifying emerging technology trends, analyzing their market impact, and generating insightful content for technical professionals. Perfect for tech leaders and decision-makers who need to stay ahead of industry developments.""",
+    "tags": ["Python", "AI Agents", "Market Analysis", "Web Scraping", "NLP", "Content Generation"],
+    "github": "https://github.com/yourusername/techtrend-fusion",
+    "demo": "https://techtrend-fusion-demo.com",
+    "image": "/techtrend-fusion.svg"
+  },
     {
       title: "AI Agent 2",
       description: "Description of your second AI agent and its capabilities.",
