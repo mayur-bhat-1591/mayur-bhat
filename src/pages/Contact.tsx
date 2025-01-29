@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { motion } from "framer-motion";
 import {
   Form,
   FormControl,
@@ -43,7 +44,6 @@ const Contact = () => {
     document.body.appendChild(script);
 
     return () => {
-      // Cleanup script when component unmounts
       document.body.removeChild(script);
     };
   }, []);
@@ -57,6 +57,11 @@ const Contact = () => {
     form.reset();
   };
 
+  const formFieldVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl animate-fadeIn relative overflow-hidden">
       {/* Floating shapes */}
@@ -64,86 +69,151 @@ const Contact = () => {
       <FloatingShape type="square" className="w-28 h-28 bottom-20 right-[10%] bg-secondary/10 animate-float delay-300" />
       <FloatingShape type="hexagon" className="w-20 h-20 top-[40%] right-[20%] bg-accent/10 animate-float delay-600" />
 
-      <h1 className="text-4xl font-bold mb-12 text-center">Get in Touch</h1>
+      <motion.h1 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-4xl font-bold mb-12 text-center"
+      >
+        Get in Touch
+      </motion.h1>
       
       <div className="grid md:grid-cols-2 gap-16">
         {/* Contact Form */}
-        <div className="space-y-8 bg-background/50 p-8 rounded-lg backdrop-blur-sm border border-white/10">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-8 bg-background/50 p-8 rounded-lg backdrop-blur-sm border border-white/10"
+        >
           <p className="text-muted-foreground">
             I'd love to hear from you! Fill out the form below with some info about yourself and what you'd like to discuss.
           </p>
           
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <motion.div
+                variants={formFieldVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.1 }}
+              >
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Your name" 
+                          {...field} 
+                          className="transition-all duration-300 focus:scale-[1.02] focus:shadow-lg"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
               
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="your.email@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <motion.div
+                variants={formFieldVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.2 }}
+              >
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="your.email@example.com" 
+                          {...field} 
+                          className="transition-all duration-300 focus:scale-[1.02] focus:shadow-lg"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
               
-              <FormField
-                control={form.control}
-                name="company"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Company (Optional)</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your company" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <motion.div
+                variants={formFieldVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.3 }}
+              >
+                <FormField
+                  control={form.control}
+                  name="company"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Company (Optional)</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Your company" 
+                          {...field} 
+                          className="transition-all duration-300 focus:scale-[1.02] focus:shadow-lg"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
               
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea 
-                        placeholder="What would you like to discuss?"
-                        className="min-h-[120px]"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <motion.div
+                variants={formFieldVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.4 }}
+              >
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="What would you like to discuss?"
+                          className="min-h-[120px] transition-all duration-300 focus:scale-[1.02] focus:shadow-lg"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
               
-              <Button type="submit" className="w-full">
-                Send Message
-              </Button>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Button 
+                  type="submit" 
+                  className="w-full transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+                >
+                  Send Message
+                </Button>
+              </motion.div>
             </form>
           </Form>
-        </div>
+        </motion.div>
 
         {/* Calendar Section */}
-        <div className="space-y-8 bg-background/50 p-8 rounded-lg backdrop-blur-sm border border-white/10">
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-8 bg-background/50 p-8 rounded-lg backdrop-blur-sm border border-white/10"
+        >
           <div className="text-center space-y-4">
             <h2 className="text-2xl font-semibold">Schedule a Meeting</h2>
             <p className="text-muted-foreground">
@@ -156,7 +226,7 @@ const Contact = () => {
             data-url="https://calendly.com/iammayurbhat/30min?hide_gdpr_banner=1&background_color=1a1f2c&text_color=ffffff&primary_color=3b82f6"
             style={{ minWidth: '320px', height: '600px' }}
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
