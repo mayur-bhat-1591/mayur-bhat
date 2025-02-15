@@ -10,6 +10,106 @@ import {
 import TimelineSection from "@/components/TimelineSection";
 import SkillsChart from "@/components/SkillsChart";
 import { FloatingShape } from "../components/FloatingShapes";
+import { Timeline } from "@/components/ui/timeline";
+
+const timelineData = [
+  {
+    title: "2024",
+    content: (
+      <div>
+        <p className="text-secondary text-sm md:text-base font-normal mb-8">
+          Created AI agents specializing in LLMs and RAG Architecture development
+        </p>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="rounded-lg overflow-hidden h-20 md:h-44 lg:h-60 w-full shadow-lg">
+            <img
+              src="https://assets.aceternity.com/templates/startup-1.webp"
+              alt="Project 1"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="rounded-lg overflow-hidden h-20 md:h-44 lg:h-60 w-full shadow-lg">
+            <img
+              src="https://assets.aceternity.com/templates/startup-2.webp"
+              alt="Project 2"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="rounded-lg overflow-hidden h-20 md:h-44 lg:h-60 w-full shadow-lg">
+            <img
+              src="https://assets.aceternity.com/templates/startup-3.webp"
+              alt="Project 3"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="rounded-lg overflow-hidden h-20 md:h-44 lg:h-60 w-full shadow-lg">
+            <img
+              src="https://assets.aceternity.com/templates/startup-4.webp"
+              alt="Project 4"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "2023",
+    content: (
+      <div>
+        <p className="text-secondary text-sm md:text-base font-normal mb-8">
+          Led development of ETL pipelines and data engineering solutions
+        </p>
+        <p className="text-secondary text-sm md:text-base font-normal mb-8">
+          Implemented advanced data warehousing solutions and analytics platforms
+        </p>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="rounded-lg overflow-hidden h-20 md:h-44 lg:h-60 w-full shadow-lg">
+            <img
+              src="https://assets.aceternity.com/pro/hero-sections.png"
+              alt="Data Project 1"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="rounded-lg overflow-hidden h-20 md:h-44 lg:h-60 w-full shadow-lg">
+            <img
+              src="https://assets.aceternity.com/features-section.png"
+              alt="Data Project 2"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "2019-2022",
+    content: (
+      <div>
+        <p className="text-secondary text-sm md:text-base font-normal mb-4">
+          Key Achievements and Milestones
+        </p>
+        <div className="mb-8">
+          <div className="flex gap-2 items-center text-secondary text-sm">
+            ✅ Developed end-to-end ETL solutions
+          </div>
+          <div className="flex gap-2 items-center text-secondary text-sm">
+            ✅ Implemented data warehousing architecture
+          </div>
+          <div className="flex gap-2 items-center text-secondary text-sm">
+            ✅ Led machine learning projects
+          </div>
+          <div className="flex gap-2 items-center text-secondary text-sm">
+            ✅ Optimized data processing workflows
+          </div>
+          <div className="flex gap-2 items-center text-secondary text-sm">
+            ✅ Achieved significant performance improvements
+          </div>
+        </div>
+      </div>
+    ),
+  },
+];
 
 const skills = [
   { 
@@ -107,6 +207,16 @@ const About = () => {
         </p>
       </motion.div>
 
+      {/* Timeline Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mb-20"
+      >
+        <Timeline data={timelineData} />
+      </motion.div>
+
       {/* Skills Chart Section */}
       <motion.div
         variants={containerVariants}
@@ -116,9 +226,6 @@ const About = () => {
       >
         <SkillsChart />
       </motion.div>
-
-      {/* Timeline Section */}
-      <TimelineSection />
 
       {/* Education Section */}
       <motion.div
