@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Code2, Brain, Heart, Star, Sparkles, GraduationCap, Database, BarChart } from "lucide-react";
+import { Code2, Brain, Star, Sparkles, GraduationCap, Database, BarChart } from "lucide-react";
+import { BackgroundPaths } from "@/components/ui/background-paths";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Accordion,
@@ -186,120 +187,126 @@ const About = () => {
   };
 
   return (
-    <div className="min-h-screen p-8 animate-fadeIn bg-gradient-to-br from-background via-background/95 to-background/90 relative overflow-hidden">
-      {/* Floating shapes */}
-      <FloatingShape type="square" className="w-28 h-28 top-40 left-[5%] bg-primary/10 animate-float" />
-      <FloatingShape type="pentagon" className="w-20 h-20 bottom-20 right-[8%] bg-secondary/10 animate-float delay-500" />
-      <FloatingShape type="triangle" className="w-16 h-16 top-[30%] right-[20%] bg-accent/10 animate-float delay-200" />
+    <>
+      <BackgroundPaths title="About Me" />
+      <div className="min-h-screen p-8 animate-fadeIn relative overflow-hidden">
+        {/* Floating shapes */}
+        <FloatingShape type="square" className="w-28 h-28 top-40 left-[5%] bg-primary/10 animate-float" />
+        <FloatingShape type="pentagon" className="w-20 h-20 bottom-20 right-[8%] bg-secondary/10 animate-float delay-500" />
+        <FloatingShape type="triangle" className="w-16 h-16 top-[30%] right-[20%] bg-accent/10 animate-float delay-200" />
 
-      {/* Introduction Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto mb-12 text-center"
-      >
-        <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary animate-pulse mb-4">
-          About Me
-        </h1>
-        <p className="text-lg text-secondary">
-          AI Developer passionate about creating intelligent solutions that make a difference.
-        </p>
-      </motion.div>
+        {/* Content sections */}
+        <div className="relative z-10">
+          {/* Introduction Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto mb-12 text-center"
+          >
+            <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary animate-pulse mb-4">
+              About Me
+            </h1>
+            <p className="text-lg text-secondary">
+              AI Developer passionate about creating intelligent solutions that make a difference.
+            </p>
+          </motion.div>
 
-      {/* Timeline Section */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-20"
-      >
-        <Timeline data={timelineData} />
-      </motion.div>
+          {/* Timeline Section */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-20"
+          >
+            <Timeline data={timelineData} />
+          </motion.div>
 
-      {/* Skills Chart Section */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl mx-auto mb-12"
-      >
-        <SkillsChart />
-      </motion.div>
+          {/* Skills Chart Section */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-4xl mx-auto mb-12"
+          >
+            <SkillsChart />
+          </motion.div>
 
-      {/* Education Section */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl mx-auto mb-12"
-      >
-        <h2 className="text-2xl font-semibold text-accent mb-6 relative">
-          Education
-          <span className="absolute bottom-0 left-0 w-20 h-1 bg-primary rounded-full"></span>
-        </h2>
-        <Accordion type="single" collapsible className="w-full space-y-4">
-          {education.map((edu, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="relative group"
-            >
-              <AccordionItem value={`item-${index}`} className="relative bg-background/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden">
-                <AccordionTrigger className="px-6 hover:no-underline group">
-                  <div className="flex items-center gap-2">
-                    <GraduationCap className="w-5 h-5" />
-                    {edu.degree}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4">
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p className="mb-2 font-medium text-accent">{edu.school}</p>
-                    <p className="text-sm text-secondary">{edu.year}</p>
-                    <p className="text-sm text-secondary">{edu.location}</p>
-                    <p className="mt-2 text-primary font-medium">{edu.description}</p>
-                  </motion.div>
-                </AccordionContent>
-              </AccordionItem>
-            </motion.div>
-          ))}
-        </Accordion>
-      </motion.div>
+          {/* Education Section */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-4xl mx-auto mb-12"
+          >
+            <h2 className="text-2xl font-semibold text-accent mb-6 relative">
+              Education
+              <span className="absolute bottom-0 left-0 w-20 h-1 bg-primary rounded-full"></span>
+            </h2>
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {education.map((edu, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="relative group"
+                >
+                  <AccordionItem value={`item-${index}`} className="relative bg-background/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-6 hover:no-underline group">
+                      <div className="flex items-center gap-2">
+                        <GraduationCap className="w-5 h-5" />
+                        {edu.degree}
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-4">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <p className="mb-2 font-medium text-accent">{edu.school}</p>
+                        <p className="text-sm text-secondary">{edu.year}</p>
+                        <p className="text-sm text-secondary">{edu.location}</p>
+                        <p className="mt-2 text-primary font-medium">{edu.description}</p>
+                      </motion.div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </motion.div>
 
-      {/* Additional Technologies Section */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl mx-auto"
-      >
-        <h2 className="text-2xl font-semibold text-accent mb-6 relative">
-          Additional Technologies & Skills
-          <span className="absolute bottom-0 left-0 w-20 h-1 bg-primary rounded-full"></span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {otherTechnologies.map((tech, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-              className="relative group"
-            >
-              <Card className="bg-background/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300">
-                <CardContent className="p-6 flex items-center gap-3">
-                  <div className="text-primary">{tech.icon}</div>
-                  <p className="text-secondary">{tech.fact}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+          {/* Additional Technologies Section */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="text-2xl font-semibold text-accent mb-6 relative">
+              Additional Technologies & Skills
+              <span className="absolute bottom-0 left-0 w-20 h-1 bg-primary rounded-full"></span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {otherTechnologies.map((tech, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                  className="relative group"
+                >
+                  <Card className="bg-background/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300">
+                    <CardContent className="p-6 flex items-center gap-3">
+                      <div className="text-primary">{tech.icon}</div>
+                      <p className="text-secondary">{tech.fact}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </>
   );
 };
 
