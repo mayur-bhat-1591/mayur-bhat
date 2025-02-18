@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 interface NavItem {
   name: string;
   url: string;
-  icon: React.ComponentType;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 interface NavBarProps {

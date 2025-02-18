@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Home, User, Briefcase, FileText } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Mail } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { NavBar } from "./ui/tubelight-navbar";
@@ -12,8 +12,8 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", url: "/", icon: Home },
     { name: "About", url: "/about", icon: User },
-    { name: "Projects", url: "/projects", icon: Briefcase },
-    { name: "Resume", url: "/resume", icon: FileText },
+    { name: "Agents", url: "/projects", icon: Briefcase },
+    { name: "Contact", url: "/contact", icon: Mail },
   ];
 
   const isActive = (path: string) => {
@@ -68,7 +68,6 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              
             </div>
           </div>
         )}
