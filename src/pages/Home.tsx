@@ -15,27 +15,23 @@ const Home = () => {
   return (
     <div className="animate-fadeIn relative min-h-screen overflow-hidden bg-black/[0.96]">      
       {/* 3D Scene Background */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      <div className="absolute inset-0 w-full h-full">
         <SplineScene 
           scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
           className="w-full h-full"
         />
       </div>
 
-      {/* Decorative elements */}
-      <div className="relative z-10 pointer-events-none">
-        <FloatingShape type="hexagon" className="w-32 h-32 top-20 left-[10%] bg-primary/10 animate-float" />
-        <FloatingShape type="triangle" className="w-24 h-24 bottom-40 right-[15%] bg-secondary/10 animate-float delay-300" />
-        <FloatingShape type="pentagon" className="w-20 h-20 top-[40%] right-[25%] bg-accent/10 animate-float delay-700" />
+      <FloatingShape type="hexagon" className="w-32 h-32 top-20 left-[10%] bg-primary/10 animate-float" />
+      <FloatingShape type="triangle" className="w-24 h-24 bottom-40 right-[15%] bg-secondary/10 animate-float delay-300" />
+      <FloatingShape type="pentagon" className="w-20 h-20 top-[40%] right-[25%] bg-accent/10 animate-float delay-700" />
 
-        <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20"
-          size={400}
-        />
-      </div>
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
       
-      {/* Content */}
-      <div className="relative z-20">
+      <div className="relative pointer-events-none">
         <Card className="min-h-screen bg-transparent border-0 shadow-none">
           <div className="flex flex-col justify-center min-h-screen max-w-2xl mx-auto px-8">
             <motion.p 
