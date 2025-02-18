@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="animate-fadeIn relative min-h-screen overflow-hidden bg-black/[0.96]">      
       {/* 3D Scene Background */}
-      <div className="fixed inset-0 w-full h-full z-0">
+      <div className="absolute inset-0 w-full h-full">
         <SplineScene 
           scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
           className="w-full h-full"
@@ -31,61 +31,63 @@ const Home = () => {
         fill="white"
       />
       
-      <Card className="min-h-screen bg-transparent border-0 shadow-none relative z-10">
-        <div className="flex flex-col justify-center min-h-screen max-w-2xl mx-auto px-8">
-          <motion.p 
-            style={{ y, opacity }}
-            className="text-2xl md:text-3xl lg:text-4xl text-foreground mb-12 font-medium leading-relaxed tracking-wide bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 text-center"
-          >
-            I build AI agents that solve real-world business problems and drive growth.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-center gap-6 mb-12"
-          >
-            <a
-              href="https://github.com/mayur-bhat-1591"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted/20 hover:bg-muted/40 transition-all duration-300 transform hover:scale-110"
+      <div className="relative pointer-events-none">
+        <Card className="min-h-screen bg-transparent border-0 shadow-none">
+          <div className="flex flex-col justify-center min-h-screen max-w-2xl mx-auto px-8">
+            <motion.p 
+              style={{ y, opacity }}
+              className="text-2xl md:text-3xl lg:text-4xl text-foreground mb-12 font-medium leading-relaxed tracking-wide bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 text-center"
             >
-              <Github className="w-6 h-6 text-primary" />
-            </a>
-            <a
-              href="https://linkedin.com/in/bhatm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted/20 hover:bg-muted/40 transition-all duration-300 transform hover:scale-110"
+              I build AI agents that solve real-world business problems and drive growth.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex justify-center gap-6 mb-12 pointer-events-auto"
             >
-              <Linkedin className="w-6 h-6 text-primary" />
-            </a>
-            <a
-              href="mailto:iammayurbhat@gmail.com"
-              className="p-3 rounded-full bg-muted/20 hover:bg-muted/40 transition-all duration-300 transform hover:scale-110"
+              <a
+                href="https://github.com/mayur-bhat-1591"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-muted/20 hover:bg-muted/40 transition-all duration-300 transform hover:scale-110"
+              >
+                <Github className="w-6 h-6 text-primary" />
+              </a>
+              <a
+                href="https://linkedin.com/in/bhatm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-muted/20 hover:bg-muted/40 transition-all duration-300 transform hover:scale-110"
+              >
+                <Linkedin className="w-6 h-6 text-primary" />
+              </a>
+              <a
+                href="mailto:iammayurbhat@gmail.com"
+                className="p-3 rounded-full bg-muted/20 hover:bg-muted/40 transition-all duration-300 transform hover:scale-110"
+              >
+                <Mail className="w-6 h-6 text-primary" />
+              </a>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex justify-center pointer-events-auto"
             >
-              <Mail className="w-6 h-6 text-primary" />
-            </a>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex justify-center"
-          >
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-3 bg-[#8B5CF6]/80 backdrop-blur-sm text-white px-8 py-4 rounded-lg hover:bg-[#7C3AED] transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20 text-lg font-medium"
-            >
-              View My Agents
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </motion.div>
-        </div>
-      </Card>
+              <Link
+                to="/projects"
+                className="inline-flex items-center gap-3 bg-[#8B5CF6]/80 backdrop-blur-sm text-white px-8 py-4 rounded-lg hover:bg-[#7C3AED] transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20 text-lg font-medium"
+              >
+                View My Agents
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </motion.div>
+          </div>
+        </Card>
+      </div>
     </div>
   );
 };
