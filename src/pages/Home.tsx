@@ -5,10 +5,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Spotlight } from "@/components/ui/spotlight";
 import { SplineScene } from "@/components/ui/spline";
 import { FloatingShape } from "../components/FloatingShapes";
-import { useEffect, useRef } from "react";
 
 const Home = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -50]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -81,11 +79,11 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* Right content */}
-        <div className="flex-1 relative">
+        {/* Right content - Centered 3D Scene */}
+        <div className="flex-1 relative flex items-center justify-center">
           <SplineScene 
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full min-h-screen"
+            className="w-full h-full"
           />
         </div>
       </div>
