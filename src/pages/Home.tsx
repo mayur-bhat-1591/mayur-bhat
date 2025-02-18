@@ -3,8 +3,9 @@ import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Spotlight } from "@/components/ui/spotlight";
-import { SplineScene } from "@/components/ui/spline";
+import { SplineScene } from "@/components/ui/splite";
 import { FloatingShape } from "../components/FloatingShapes";
+import { Card } from "@/components/ui/card";
 
 const Home = () => {
   const { scrollY } = useScroll();
@@ -22,71 +23,75 @@ const Home = () => {
         fill="white"
       />
       
-      <div className="flex flex-col md:flex-row min-h-screen">
-        {/* Left content */}
-        <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
-          <motion.p 
-            style={{ y, opacity }}
-            className="text-2xl md:text-3xl lg:text-4xl text-foreground mb-12 max-w-3xl font-medium leading-relaxed tracking-wide bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
-          >
-            I build AI agents that solve real-world business problems and drive growth.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-start gap-6 mb-12"
-          >
-            <a
-              href="https://github.com/mayur-bhat-1591"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 transform hover:scale-110"
+      <Card className="min-h-screen bg-transparent border-0 shadow-none">
+        <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+          {/* Left content */}
+          <div className="relative z-10 flex flex-col justify-center p-8">
+            <motion.p 
+              style={{ y, opacity }}
+              className="text-2xl md:text-3xl lg:text-4xl text-foreground mb-12 max-w-3xl font-medium leading-relaxed tracking-wide bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
             >
-              <Github className="w-6 h-6 text-primary" />
-            </a>
-            <a
-              href="https://linkedin.com/in/bhatm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 transform hover:scale-110"
+              I build AI agents that solve real-world business problems and drive growth.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex justify-start gap-6 mb-12"
             >
-              <Linkedin className="w-6 h-6 text-primary" />
-            </a>
-            <a
-              href="mailto:iammayurbhat@gmail.com"
-              className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 transform hover:scale-110"
+              <a
+                href="https://github.com/mayur-bhat-1591"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 transform hover:scale-110"
+              >
+                <Github className="w-6 h-6 text-primary" />
+              </a>
+              <a
+                href="https://linkedin.com/in/bhatm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 transform hover:scale-110"
+              >
+                <Linkedin className="w-6 h-6 text-primary" />
+              </a>
+              <a
+                href="mailto:iammayurbhat@gmail.com"
+                className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 transform hover:scale-110"
+              >
+                <Mail className="w-6 h-6 text-primary" />
+              </a>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Mail className="w-6 h-6 text-primary" />
-            </a>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-3 bg-[#8B5CF6] text-white px-8 py-4 rounded-lg hover:bg-[#7C3AED] transition-all duration-300 transform hover:shadow-lg hover:shadow-primary/20 text-lg font-medium"
-            >
-              View My Agents
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </motion.div>
-        </div>
+              <Link
+                to="/projects"
+                className="inline-flex items-center gap-3 bg-[#8B5CF6] text-white px-8 py-4 rounded-lg hover:bg-[#7C3AED] transition-all duration-300 transform hover:shadow-lg hover:shadow-primary/20 text-lg font-medium"
+              >
+                View My Agents
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </motion.div>
+          </div>
 
-        {/* Right content - Centered 3D Scene */}
-        <div className="flex-1 relative flex items-center justify-center">
-          <SplineScene 
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full"
-          />
+          {/* Right content - Centered 3D Scene */}
+          <div className="relative flex items-center justify-center">
+            <div className="w-full h-[600px] md:h-screen">
+              <SplineScene 
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 };
