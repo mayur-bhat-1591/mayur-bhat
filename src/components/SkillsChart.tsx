@@ -1,5 +1,4 @@
 
-
 import React from "react";
 import {
   RadarChart,
@@ -90,7 +89,7 @@ const SkillsChart = () => {
         <CardContent>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Chart Section */}
-            <div className="h-[400px] w-full" role="img" aria-label="Skills radar chart showing technical expertise levels">
+            <div className="h-[500px] w-full" role="img" aria-label="Skills radar chart showing technical expertise levels">
               <ChartContainer
                 className="[&_.recharts-polar-grid-angle-line]:stroke-muted-foreground/20 [&_.recharts-polar-grid-concentric-circle]:stroke-muted-foreground/20"
                 config={{
@@ -105,16 +104,16 @@ const SkillsChart = () => {
                 <RadarChart
                   cx="50%"
                   cy="50%"
-                  outerRadius="80%"
+                  outerRadius="85%"
                   data={chartData}
-                  margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                  margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
                 >
                   <PolarGrid />
                   <PolarAngleAxis
                     dataKey="subject"
                     tick={{ 
                       fill: "currentColor", 
-                      fontSize: 13,
+                      fontSize: 14,
                       fontWeight: 500
                     }}
                     tickFormatter={(value) => {
@@ -170,9 +169,6 @@ const SkillsChart = () => {
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
-                    <span className="text-sm font-semibold text-primary min-w-[3rem] text-right">
-                      {skill.level}%
-                    </span>
                   </div>
                 </motion.div>
               ))}
@@ -203,4 +199,3 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export default SkillsChart;
-
