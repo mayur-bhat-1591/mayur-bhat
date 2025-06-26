@@ -520,7 +520,7 @@ const About = () => {
             Core Competencies
           </span>
         </h2>
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-20">
           <SkillsChart />
         </div>
         
