@@ -515,17 +515,21 @@ const About = () => {
         animate="visible"
         className="max-w-6xl mx-auto mb-16"
       >
-        <h2 className="text-3xl font-bold text-center mb-8">
+        <h2 className="text-3xl font-bold text-center mb-12">
           <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
             Core Competencies
           </span>
         </h2>
-        <div className="flex justify-center mb-20">
-          <SkillsChart />
+        
+        {/* Skills Chart with proper margin */}
+        <div className="flex justify-center mb-16">
+          <div className="transform scale-90 md:scale-100">
+            <SkillsChart />
+          </div>
         </div>
         
         {/* Enhanced Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
@@ -537,18 +541,7 @@ const About = () => {
                 <div className="text-primary group-hover:scale-110 transition-transform duration-300">
                   {skill.icon}
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-primary mb-1">{skill.name}</h3>
-                  <div className="w-full bg-background/50 rounded-full h-2">
-                    <motion.div 
-                      className="bg-gradient-to-r from-primary to-accent h-2 rounded-full"
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: index * 0.1 }}
-                    />
-                  </div>
-                  <span className="text-xs text-accent font-semibold">{skill.level}%</span>
-                </div>
+                <h3 className="font-bold text-primary">{skill.name}</h3>
               </div>
               <p className="text-sm text-secondary leading-relaxed">{skill.description}</p>
             </motion.div>
