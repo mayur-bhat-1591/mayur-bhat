@@ -526,7 +526,9 @@ const About = () => {
             Core Competencies
           </span>
         </h2>
-        <SkillsChart />
+        <div className="flex justify-center mb-12">
+          <SkillsChart />
+        </div>
         
         {/* Enhanced Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
