@@ -266,38 +266,32 @@ const timelineData = [
 const skills = [
   { 
     name: "Product Management & Strategy", 
-    icon: <Star className="w-6 h-6" />, 
-    level: 95,
+    icon: <Star className="w-6 h-6" />,
     description: "Customer Discovery, Requirements Engineering, Product Roadmapping, Feature Prioritization, A/B Testing, Cross-functional Leadership, Stakeholder Management"
   },
   { 
     name: "AI/GenAI Technologies", 
-    icon: <Brain className="w-6 h-6" />, 
-    level: 92,
+    icon: <Brain className="w-6 h-6" />,
     description: "Large Language Models, RAG Architecture, Vector Databases, Multi-modal Processing, Azure AI Services, OpenAI API Integration, Conversational AI, Data Sovereignty"
   },
   { 
     name: "Technical Development", 
-    icon: <Code2 className="w-6 h-6" />, 
-    level: 85,
+    icon: <Code2 className="w-6 h-6" />,
     description: "Python, Advanced SQL, R, Azure Cloud Platform, API Integration (REST/SOAP), DevOps, CI/CD, Database Management (SQL Server, Oracle, Cosmos DB)"
   },
   { 
     name: "Analytics & Business Intelligence", 
     icon: <BarChart className="w-6 h-6" />, 
-    level: 90,
     description: "PowerBI, Tableau, Advanced Excel, Statistical Analysis, Revenue Generation, Deal Management, Business Operations, Data Visualization"
   },
   { 
     name: "Enterprise Solutions", 
     icon: <Database className="w-6 h-6" />, 
-    level: 88,
     description: "SharePoint Migrations, ETL Processes, Azure Synapse Analytics, Enterprise Architecture, Compliance Requirements, Security Implementation"
   },
   { 
     name: "Leadership & Communication", 
     icon: <Users className="w-6 h-6" />, 
-    level: 93,
     description: "Cross-functional Team Leadership, International Collaboration, Client Relationship Management, Technical Documentation, Presentation Skills"
   },
 ];
