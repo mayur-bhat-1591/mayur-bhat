@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import {
   RadarChart,
@@ -87,71 +88,95 @@ const SkillsChart = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="h-[500px] w-full" role="img" aria-label="Skills radar chart showing technical expertise levels">
-            <ChartContainer
-              className="[&_.recharts-polar-grid-angle-line]:stroke-muted-foreground/20 [&_.recharts-polar-grid-concentric-circle]:stroke-muted-foreground/20"
-              config={{
-                skills: {
-                  theme: {
-                    light: "#9b87f5",
-                    dark: "#D6BCFA",
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Chart Section */}
+            <div className="h-[400px] w-full" role="img" aria-label="Skills radar chart showing technical expertise levels">
+              <ChartContainer
+                className="[&_.recharts-polar-grid-angle-line]:stroke-muted-foreground/20 [&_.recharts-polar-grid-concentric-circle]:stroke-muted-foreground/20"
+                config={{
+                  skills: {
+                    theme: {
+                      light: "#9b87f5",
+                      dark: "#D6BCFA",
+                    },
                   },
-                },
-              }}
-            >
-              <RadarChart
-                cx="50%"
-                cy="50%"
-                outerRadius="65%"
-                data={chartData}
-                margin={{ top: 40, right: 80, bottom: 40, left: 80 }}
+                }}
               >
-                <PolarGrid />
-                <PolarAngleAxis
-                  dataKey="subject"
-                  tick={{ 
-                    fill: "currentColor", 
-                    fontSize: 14,
-                    fontWeight: 500
-                  }}
-                  tickFormatter={(value) => value}
-                  className="text-foreground"
-                />
-                <PolarRadiusAxis
-                  angle={90}
-                  domain={[0, 100]}
-                  tick={{ 
-                    fill: "currentColor", 
-                    fontSize: 12
-                  }}
-                  tickCount={6}
-                />
-                <Radar
-                  name="Skill Level"
-                  dataKey="A"
-                  stroke="var(--color-skills)"
-                  fill="var(--color-skills)"
-                  fillOpacity={0.3}
-                  strokeWidth={2}
-                />
-                <ChartTooltip content={<CustomTooltip />} />
-              </RadarChart>
-            </ChartContainer>
-          </div>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {skills.map((skill) => (
-              <motion.div
-                key={skill.subject}
-                whileHover={{ scale: 1.02 }}
-                className="flex items-center gap-3 p-3 rounded-lg bg-muted/50"
-              >
-                <skill.icon className="w-5 h-5 text-primary" />
-                <div>
-                  <p className="font-medium text-foreground">{skill.subject}</p>
-                  <p className="text-sm text-muted-foreground">{skill.description}</p>
-                </div>
-              </motion.div>
-            ))}
+                <RadarChart
+                  cx="50%"
+                  cy="50%"
+                  outerRadius="80%"
+                  data={chartData}
+                  margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                >
+                  <PolarGrid />
+                  <PolarAngleAxis
+                    dataKey="subject"
+                    tick={{ 
+                      fill: "currentColor", 
+                      fontSize: 13,
+                      fontWeight: 500
+                    }}
+                    tickFormatter={(value) => {
+                      // Split long labels for better readability
+                      if (value === "System Design") return "System\nDesign";
+                      if (value === "Cloud & DevOps") return "Cloud &\nDevOps";
+                      if (value === "Data & ETL") return "Data &\nETL";
+                      return value;
+                    }}
+                    className="text-foreground"
+                  />
+                  <PolarRadiusAxis
+                    angle={90}
+                    domain={[0, 100]}
+                    tick={{ 
+                      fill: "currentColor", 
+                      fontSize: 11
+                    }}
+                    tickCount={5}
+                  />
+                  <Radar
+                    name="Skill Level"
+                    dataKey="A"
+                    stroke="var(--color-skills)"
+                    fill="var(--color-skills)"
+                    fillOpacity={0.3}
+                    strokeWidth={2}
+                  />
+                  <ChartTooltip content={<CustomTooltip />} />
+                </RadarChart>
+              </ChartContainer>
+            </div>
+
+            {/* Skills List Section */}
+            <div className="space-y-4">
+              {skills.map((skill) => (
+                <motion.div
+                  key={skill.subject}
+                  whileHover={{ scale: 1.02 }}
+                  className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted/70 transition-colors"
+                >
+                  <div className="flex items-center gap-3 flex-1">
+                    <skill.icon className="w-5 h-5 text-primary flex-shrink-0" />
+                    <div className="min-w-0">
+                      <p className="font-medium text-foreground">{skill.subject}</p>
+                      <p className="text-sm text-muted-foreground">{skill.description}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <div className="w-12 h-2 bg-muted rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-500"
+                        style={{ width: `${skill.level}%` }}
+                      />
+                    </div>
+                    <span className="text-sm font-semibold text-primary min-w-[3rem] text-right">
+                      {skill.level}%
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -178,3 +203,4 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export default SkillsChart;
+
