@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   RadarChart,
@@ -31,7 +32,7 @@ const skills = [
     description: "LLM, RAG Architecture, Embedding Models, Conversational AI",
   },
   {
-    subject: "Programming",
+    subject: "Programming", 
     level: 60,
     icon: Code2,
     description: "Python, Advanced SQL, R, TypeScript",
@@ -86,7 +87,7 @@ const SkillsChart = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="h-[400px] w-full" role="img" aria-label="Skills radar chart showing technical expertise levels">
+          <div className="h-[500px] w-full" role="img" aria-label="Skills radar chart showing technical expertise levels">
             <ChartContainer
               className="[&_.recharts-polar-grid-angle-line]:stroke-muted-foreground/20 [&_.recharts-polar-grid-concentric-circle]:stroke-muted-foreground/20"
               config={{
@@ -101,18 +102,29 @@ const SkillsChart = () => {
               <RadarChart
                 cx="50%"
                 cy="50%"
-                outerRadius="80%"
+                outerRadius="65%"
                 data={chartData}
+                margin={{ top: 40, right: 80, bottom: 40, left: 80 }}
               >
                 <PolarGrid />
                 <PolarAngleAxis
                   dataKey="subject"
-                  tick={{ fill: "currentColor", fontSize: 12 }}
+                  tick={{ 
+                    fill: "currentColor", 
+                    fontSize: 14,
+                    fontWeight: 500
+                  }}
+                  tickFormatter={(value) => value}
+                  className="text-foreground"
                 />
                 <PolarRadiusAxis
-                  angle={30}
+                  angle={90}
                   domain={[0, 100]}
-                  tick={{ fill: "currentColor", fontSize: 12 }}
+                  tick={{ 
+                    fill: "currentColor", 
+                    fontSize: 12
+                  }}
+                  tickCount={6}
                 />
                 <Radar
                   name="Skill Level"
@@ -120,12 +132,13 @@ const SkillsChart = () => {
                   stroke="var(--color-skills)"
                   fill="var(--color-skills)"
                   fillOpacity={0.3}
+                  strokeWidth={2}
                 />
                 <ChartTooltip content={<CustomTooltip />} />
               </RadarChart>
             </ChartContainer>
           </div>
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {skills.map((skill) => (
               <motion.div
                 key={skill.subject}
