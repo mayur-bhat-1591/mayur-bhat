@@ -44,8 +44,16 @@ const Contact = () => {
     script.async = true;
     document.body.appendChild(script);
 
+    // Initialize LinkedIn badge
+    const linkedinScript = document.createElement("script");
+    linkedinScript.src = "https://platform.linkedin.com/badges/js/profile.js";
+    linkedinScript.async = true;
+    linkedinScript.defer = true;
+    document.body.appendChild(linkedinScript);
+
     return () => {
       document.body.removeChild(script);
+      document.body.removeChild(linkedinScript);
     };
   }, []);
 
@@ -235,6 +243,13 @@ const Contact = () => {
             <p className="text-muted-foreground">
               Prefer to have a conversation? Book a time that works best for you.
             </p>
+            
+            {/* LinkedIn Badge */}
+            <div className="flex justify-center mt-6">
+              <div className="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="VERTICAL" data-vanity="bhatm" data-version="v1">
+                <a className="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/bhatm?trk=profile-badge">Mayur Bhat</a>
+              </div>
+            </div>
           </div>
           
           <div 
