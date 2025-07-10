@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
 import { FloatingShape } from "../components/FloatingShapes";
+import { Linkedin } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -85,9 +86,24 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="space-y-8 bg-background/50 p-8 rounded-lg backdrop-blur-sm border border-white/10"
         >
-          <p className="text-muted-foreground">
-            I'd love to hear from you! Fill out the form below with some info about yourself and what you'd like to discuss.
-          </p>
+          <div className="space-y-4">
+            <p className="text-muted-foreground">
+              I'd love to hear from you! Fill out the form below with some info about yourself and what you'd like to discuss.
+            </p>
+            
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-muted-foreground">Or connect with me on</span>
+              <a 
+                href="https://linkedin.com/in/iammayurbhat" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+              >
+                <Linkedin size={20} />
+                <span className="font-medium">LinkedIn</span>
+              </a>
+            </div>
+          </div>
           
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
